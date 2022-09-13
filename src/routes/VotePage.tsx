@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Box, Button, ButtonGroup, Flex, Skeleton, Text } from '@chakra-ui/react';
+import { Box, Button, ButtonGroup, Flex, Text } from '@chakra-ui/react';
 import { BsFillHandThumbsUpFill, BsFillHandThumbsDownFill } from 'react-icons/bs';
 import { BeatLoader, SyncLoader } from 'react-spinners';
 const VotePage = () => {
     const [isLoading, setIsLoading] = useState(false);
-    const [eventId, setEventId] = useState('')
+    // const [eventId, setEventId] = useState('')
+    setIsLoading(false);
     return (
         <Box height='100%'
             width='100%' bg='#ffb901' padding='2rem'>
