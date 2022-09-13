@@ -1,15 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ChakraProvider, extendTheme  } from '@chakra-ui/react';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import WelcomePage from './routes/WelcomePage';
+import VotePage from './routes/VotePage';
+
+const theme = extendTheme({
+
+})
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <ChakraProvider theme={theme}>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<WelcomePage />}/>
+          <Route path='/vote' element={<VotePage />}/>
+        </Routes>
+      </BrowserRouter>
+    </ChakraProvider>
   </React.StrictMode>
 );
 
