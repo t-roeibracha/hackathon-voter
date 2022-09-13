@@ -31,10 +31,10 @@ jobs:
         run: zip react.zip ./* 
                   
       - name: Upload artifact for deployment job
-          uses: actions/upload-artifact@v2
-          with:
-          name: node-app
-          path: react.zip
+        uses: actions/upload-artifact@v2
+        with:
+        name: node-app
+        path: react.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -53,10 +53,10 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'hackaton-voter2022'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E99366F455E64B08BC890FC5B1356E4A }}
-          package: react.zip
+        app-name: 'hackaton-voter2022'
+        slot-name: 'Production'
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E99366F455E64B08BC890FC5B1356E4A }}
+        package: react.zip
       
       - name: Delete zip file
         run: rm react.zip
