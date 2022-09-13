@@ -28,13 +28,13 @@ jobs:
           npm run test --if-present
 
       - name: Zip all files for upload between jobs
-        run: zip react.zip ./* 
+          run: zip react.zip ./* 
                   
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
-        with:
-        name: node-app
-        path: react.zip
+          uses: actions/upload-artifact@v2
+          with:
+          name: node-app
+          path: react.zip
 
   deploy:
     runs-on: ubuntu-latest
