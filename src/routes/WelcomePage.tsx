@@ -21,6 +21,7 @@ const WelcomePage = () => {
                   margin='1rem 0'
                   value={alias}
                   background='white'
+                  maxWidth={'350px'}
                   onChange={(e)=>setAlias(e.target.value)}
                   ></Input>
                   <Link to='/vote'>
