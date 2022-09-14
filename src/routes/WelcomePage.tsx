@@ -6,15 +6,16 @@ const WelcomePage = () => {
     const [alias,setAlias] = useState('')
     return(
     <Box height='100%'
-    width='100%' bg='#01a4ef' padding='2rem'>
+    width='100%' bg='purple.400' padding='2rem'>
         <Flex
             direction={'column'}
             justifyContent={'center'}
             alignItems={'center'}
             height='100%'
             >
-                <Heading as='h1' size={'3xl'} color='white'>hello</Heading>
-                <Text margin='1rem 0'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet nostrum quas delectus? Odit amet illum minima. A molestias ipsa quidem iure? Voluptates explicabo adipisci libero beatae, perspiciatis et porro mollitia?</Text>
+                <Heading as='h1' textAlign={"center"} size={'3xl'} color='white' alignContent={"center"}>Welcome to activi-tinder</Heading>
+                <Text color={'white'} align="center" margin='1rem 0'>want to help us develop an AI-based calender for adults?</Text>
+                <Text color={'white'} align="center" margin='1rem 0'>Rate as many activities as you can, earn a good karma and a tasty chocolate</Text>
                 <Input
                  placeholder='Alias (Optional)'
                   margin='1rem 0'
@@ -23,7 +24,7 @@ const WelcomePage = () => {
                   onChange={(e)=>setAlias(e.target.value)}
                   ></Input>
                   <Link to='/vote'>
-                    <Button colorScheme='green'>Start</Button>
+                    <Button colorScheme='green'>I want to help!</Button>
                   </Link>
 
         </Flex>
