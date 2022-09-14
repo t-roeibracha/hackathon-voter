@@ -34,7 +34,7 @@ jobs:
           app-name: 'hackaton-voter2022'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E99366F455E64B08BC890FC5B1356E4A }}
-          package: .\build\
+          package: build/
 
   #     - name: Zip all files for upload between jobs
   #       run: zip react.zip ./* 
