@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import WelcomePage from './routes/WelcomePage';
 import VotePage from './routes/VotePage';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 const theme = extendTheme({
 
@@ -31,7 +32,7 @@ root.render(
     </ChakraProvider>
   </React.StrictMode>
 );
-
+serviceWorkerRegistration.register();
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
