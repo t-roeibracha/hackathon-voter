@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Box, Button, Flex, Heading, Input, Text } from '@chakra-ui/react';
 import {Navigate } from 'react-router-dom';
 const WelcomePage = () => {
