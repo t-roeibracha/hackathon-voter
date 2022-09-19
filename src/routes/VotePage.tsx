@@ -6,19 +6,35 @@ import { BeatLoader, SyncLoader } from 'react-spinners';
 const VotePage = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [event,setEvent] = useState<{id: string; title: string, description: string}>();
+    const userId = localStorage.getItem("userId");
     const getEvent = ()=>{
         setIsLoading(true)
-        setTimeout(()=>{
+        fetch("https://aicalendarbackend.azurewebsites.net/api/Events/random").then(async (res)=>{
+            const eventRes = await res.json();
             setEvent({
-                "id":"1",
-                "title":"Title",
-                "description":"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet nostrum quas delectus? Odit amet illum minima. A molestias ipsa quidem iure? Voluptates explicabo adipisci libero beatae, perspiciatis et porro mollitia?"
+                "id": eventRes["id"],
+                "title":  eventRes["name"],
+                "description":eventRes["description"]
             })
-            setIsLoading(false)
-        },1000)
+            setIsLoading(false);
+        })
     }
     const vote = (ans:boolean)=>{
-        getEvent();
+        setIsLoading(true)
+        if (userId === null || event === null)
+            return;
+        fetch("https://aicalendarbackend.azurewebsites.net/api/Interactions",{
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                "eventId":event?.id,
+                "userId":parseInt(userId)
+            }),
+            }).then((res)=>{
+                getEvent();
+            })
     }
     useEffect(getEvent,[])
     return (
