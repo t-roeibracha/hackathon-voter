@@ -13,6 +13,7 @@ const Leadrboard = () =>{
     const [isLoading, setIsLoading] = useState(true);
     const [users,setUsers] = useState<User[]>([]);
     const navigate = useNavigate();
+    console.log("new Version!")
     useEffect(()=>{
         fetch("https://aicalendarbackend.azurewebsites.net/api/Users/leaderboard").then((req)=>{
             req.json().then((res)=>{
