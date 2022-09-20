@@ -4,27 +4,22 @@ import {SyncLoader } from 'react-spinners';
 import { useNavigate } from "react-router-dom";
 
 interface User {
-    username:string,
+    userName:string,
     score:number,
 }
 
-const tempUsers :User[]=[
-    {"username":"Hermione","score":500},
-    {"username":"Ron","score":400},
-    {"username":"Hagrid","score":300},
-    {"username":"Harry","score":300},
-    {"username":"Dobi","score":100},
-]
 
 const Leadrboard = () =>{
     const [isLoading, setIsLoading] = useState(true);
     const [users,setUsers] = useState<User[]>([]);
     const navigate = useNavigate();
     useEffect(()=>{
-        setTimeout(()=>{
-            setUsers(tempUsers);
-            setIsLoading(false);
-        },1000)
+        fetch("https://aicalendarbackend.azurewebsites.net/api/Users/leaderboard").then((req)=>{
+            req.json().then((res)=>{
+                setUsers(res);
+                setIsLoading(false)
+            })
+        })
     },[])
     return (
         <Box height='100%'
@@ -50,7 +45,7 @@ const Leadrboard = () =>{
                                 <Tbody>
                                     {users.map((user)=>(
                                         <Tr>
-                                            <Td>{user.username}</Td>
+                                            <Td>{user.userName}</Td>
                                             <Td isNumeric>{user.score}</Td>
                                         </Tr>
                                     ))}
