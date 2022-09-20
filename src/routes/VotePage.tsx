@@ -3,6 +3,7 @@ import { Box, Button, ButtonGroup, Flex, Heading, Text } from '@chakra-ui/react'
 import { BsFillHandThumbsUpFill, BsFillHandThumbsDownFill } from 'react-icons/bs';
 import { MdLeaderboard } from 'react-icons/md';
 import { BeatLoader, SyncLoader } from 'react-spinners';
+import { Link } from 'react-router-dom';
 const VotePage = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [event,setEvent] = useState<{id: string; title: string, description: string}>();
@@ -30,7 +31,8 @@ const VotePage = () => {
             },
             body: JSON.stringify({
                 "eventId":event?.id,
-                "userId":parseInt(userId)
+                "userId":parseInt(userId),
+                "isPositive":ans
             }),
             }).then((res)=>{
                 getEvent();
@@ -64,7 +66,9 @@ const VotePage = () => {
                         <Button onClick={()=>vote(false)} rightIcon={<BsFillHandThumbsDownFill />} spinner={<BeatLoader size={8} color='white' />} isLoading={isLoading} colorScheme='red'>Not my type</Button>
                     </ButtonGroup>
                     <ButtonGroup margin='2rem 0'>
-                        <Button rightIcon={<MdLeaderboard/>}>Leaderbord</Button>
+                        <Link to='/leaderboard'>
+                            <Button rightIcon={<MdLeaderboard/>}>Leaderbord</Button>
+                        </Link>
                     </ButtonGroup>
                 </Flex>
 

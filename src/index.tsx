@@ -11,6 +11,8 @@ import {
 import WelcomePage from './routes/WelcomePage';
 import VotePage from './routes/VotePage';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import Leadrboard from './routes/Leaderbord';
+import NewEventPage from './routes/NewEvent';
 
 const theme = extendTheme({
 
@@ -27,6 +29,8 @@ root.render(
         <Routes>
           <Route path='/' element={<WelcomePage />}/>
           <Route path='/vote' element={<VotePage />}/>
+          <Route path='/leaderboard' element={<Leadrboard />}/>
+          <Route path='/newEvent' element={<NewEventPage />}/>
         </Routes>
       </BrowserRouter>
     </ChakraProvider>

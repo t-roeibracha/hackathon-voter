@@ -1,0 +1,9 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/2c98a977-1888-45cc-95b0-609ccbe87910/AppServices/subscriptions/2c98a977-1888-45cc-95b0-609ccbe87910/resourceGroups/hackathon-2022/providers/Microsoft.Web/sites/hackaton-voter2022",
+    "appService.deploySubpath": "./build",
+    "appService.showBuildDuringDeployPrompt": false
+}
