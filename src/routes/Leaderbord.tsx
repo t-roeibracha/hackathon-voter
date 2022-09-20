@@ -63,5 +63,5 @@ const Leadrboard = () =>{
         </Box>
     )
 }
-
+ 
 export default Leadrboard
